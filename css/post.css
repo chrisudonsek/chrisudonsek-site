@@ -1,0 +1,210 @@
+/* ============================================
+   POST PAGE STYLES — post.css
+   ============================================ */
+
+.post-page {
+  padding: 40px 32px 80px;
+}
+
+.post-page-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent-blue); }
+
+.post-page-header {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-page-header .post-meta {
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.post-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.post-page-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.byline-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.byline-role {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── POST BODY TYPOGRAPHY ── */
+.post-body {
+  color: var(--text-secondary);
+  font-size: 16.5px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.post-body p {
+  margin-bottom: 24px;
+}
+
+.post-body h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 40px 0 16px;
+}
+
+.post-body h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 32px 0 12px;
+}
+
+.post-body a {
+  color: var(--accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.post-body a:hover { color: var(--accent-blue-hover); }
+
+.post-body strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.post-body ul, .post-body ol {
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+
+.post-body li {
+  margin-bottom: 8px;
+}
+
+.post-body blockquote {
+  border-left: 3px solid var(--accent-blue);
+  padding: 4px 0 4px 20px;
+  margin: 28px 0;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.post-body code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: var(--accent-green);
+}
+
+.post-body pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+.post-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* ── ENGAGEMENT BAR ── */
+.post-engagement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.engagement-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── SOURCE LINK ── */
+.source-link-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.source-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.source-link-btn {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  transition: color 0.2s;
+}
+.source-link-btn:hover { color: var(--accent-blue-hover); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .post-page { padding: 32px 20px 60px; }
+  .post-body { font-size: 16px; }
+}
+
+/* ── AUTHOR NOTE ── */
+.post-author-note {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13.5px !important;
+  color: var(--text-muted) !important;
+  font-family: var(--font-mono);
+  line-height: 1.6 !important;
+}

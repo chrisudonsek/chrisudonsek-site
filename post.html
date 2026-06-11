@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Post — Chris Udonsek</title>
+  <meta name="description" id="metaDesc" content="Writing by Chris Udonsek, Founder & CEO of OrgByte Technologies." />
+  <meta property="og:url" id="ogUrl" content="https://chrisudonsek.com" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@chrisudonsek" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/post.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="wordmark">Chris Udonsek</a>
+      <nav class="main-nav">
+        <a href="/#writing" class="nav-link">Writing</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="nav-link nav-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener" class="nav-link nav-social">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X
+        </a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle night mode" title="Toggle night mode">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/#writing" onclick="toggleMenu()">Writing</a>
+    <a href="/#about" onclick="toggleMenu()">About</a>
+    <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener">X (Twitter)</a>
+  </div>
+
+  <!-- POST CONTENT -->
+  <article class="post-page" id="postPage">
+    <div class="post-page-inner">
+
+      <!-- Back link -->
+      <a href="/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        All posts
+      </a>
+
+      <!-- Post header -->
+      <header class="post-page-header">
+        <div class="post-meta">
+          <span class="post-type" id="postTypeLabel"></span>
+          <time class="post-date" id="postDate"></time>
+          <span class="read-time" id="postReadTime"></span>
+        </div>
+        <h1 class="post-page-title" id="postPageTitle"></h1>
+        <div class="post-page-byline">
+          <span class="byline-name">Chris Udonsek</span>
+          <span class="byline-role">Founder & CEO, OrgByte Technologies</span>
+        </div>
+      </header>
+
+      <!-- Post body -->
+      <div class="post-body" id="postBody"></div>
+
+      <!-- Post engagement -->
+      <div class="post-engagement">
+        <div class="engagement-actions">
+          <button class="action-btn vote-btn" id="postVoteBtn" title="Upvote">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <span class="vote-count" id="postVoteCount">0</span>
+          </button>
+          <button class="action-btn like-btn" id="postLikeBtn" title="Like">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="like-count" id="postLikeCount">0</span>
+          </button>
+        </div>
+        <div class="engagement-share">
+          <button class="action-btn share-btn" id="postShareBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share this post
+          </button>
+        </div>
+      </div>
+
+      <!-- Original source link (for mirrored content) -->
+      <div class="source-link-block" id="sourceLinkBlock" style="display:none">
+        <span class="source-label">Originally posted on</span>
+        <a href="#" id="sourceLink" target="_blank" rel="noopener" class="source-link-btn"></a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Chris Udonsek</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener">X</a>
+  <a href="https://orgbyte.com" target="_blank" rel="noopener">OrgByte</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHARE MODAL -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-modal-inner">
+      <button class="share-modal-close" onclick="closeShareModal()">✕</button>
+      <h3 class="share-modal-title">Share this post</h3>
+      <p class="share-modal-post-title" id="shareModalTitle"></p>
+      <div class="share-options">
+        <button class="share-option share-option--x" onclick="shareToX()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </button>
+        <button class="share-option share-option--linkedin" onclick="shareToLinkedIn()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Share on LinkedIn
+        </button>
+        <button class="share-option share-option--copy" onclick="copyLink()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyBtnText">Copy link</span>
+        </button>
+        </div>
+    </div>
+  </div>
+  <div class="share-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
+
+  <script src="js/posts-data.js"></script>
+  <script src="js/post.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
