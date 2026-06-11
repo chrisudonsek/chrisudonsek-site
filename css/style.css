@@ -26,7 +26,7 @@
   --accent-green-dim: #16A34A;
   --accent-reddit: #FF5700;
   --header-bg: rgba(10, 10, 15, 0.92);
-  --font-display: 'Syne', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   --radius: 10px;
