@@ -150,7 +150,8 @@ function shareToX() {
 }
 
 function shareToLinkedIn() {
-  const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentShareUrl)}`;
+  const text = `"${currentShareTitle}" by Chris Udonsek`;
+  const url = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text + '\n\n' + currentShareUrl)}`;
   window.open(url, '_blank', 'noopener');
   closeShareModal();
 }
