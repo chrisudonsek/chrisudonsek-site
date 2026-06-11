@@ -231,3 +231,49 @@ function toggleReadMore(postId) {
     textEl.textContent = 'Show less';
   }
 }
+
+// ── CONTACT FORM ─────────────────────────────────────────────────
+// Using Formspree — sign up at formspree.io and replace YOUR_FORM_ID
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('submitText');
+  const success = document.getElementById('formSuccess');
+  const error = document.getElementById('formError');
+
+  btn.disabled = true;
+  btnText.textContent = 'Sending...';
+  success.classList.add('hidden');
+  error.classList.add('hidden');
+
+  const form = document.getElementById('contactForm');
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    subject: form.subject.value,
+    message: form.message.value,
+    _replyto: form.email.value,
+    _subject: `[chrisudonsek.com] ${form.subject.value}`
+  };
+
+  try {
+    // Replace YOUR_FORM_ID below with your Formspree form ID
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      success.classList.remove('hidden');
+      form.reset();
+    } else {
+      throw new Error('Failed');
+    }
+  } catch {
+    error.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+    btnText.textContent = 'Send message';
+  }
+}

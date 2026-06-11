@@ -4,27 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chris Udonsek — Founder, Builder, Economist</title>
-  <meta name="description" content="Thoughts on technology, ecosystems, and building things that matter. By Chris Udonsek, Founder & CEO of OrgByte Technologies." />
+  <meta name="description" content="Writing on technology ecosystems, company building, and what it looks like to do this from Africa. By Chris Udonsek, Founder & CEO of OrgByte Technologies." />
   <meta property="og:title" content="Chris Udonsek" />
-  <meta property="og:description" content="Thoughts on technology, ecosystems, and building things that matter." />
+  <meta property="og:description" content="Writing on technology, ecosystems, and building things that matter." />
   <meta property="og:url" content="https://chrisudonsek.com" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@chrisudonsek" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="header-inner">
       <a href="/" class="wordmark">Chris Udonsek</a>
       <nav class="main-nav">
         <a href="#writing" class="nav-link active">Writing</a>
         <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
         <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="nav-link nav-social">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
@@ -33,3 +34,369 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           X
         </a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle night mode" title="Toggle night mode">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#writing" onclick="toggleMenu()">Writing</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener">X (Twitter)</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Founder & CEO, OrgByte Technologies · Abuja, Nigeria</div>
+      <h1 class="hero-name">
+        <span class="name-text" id="heroName">Chris Udonsek</span><span class="cursor" id="cursor">|</span>
+      </h1>
+      <p class="hero-tagline">Building technology ecosystems from Africa.<br>Writing about what I see, learn, and build along the way.</p>
+      <div class="hero-socials">
+        <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="social-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener" class="social-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @chrisudonsek
+        </a>
+        <a href="https://orgbyte.com" target="_blank" rel="noopener" class="social-pill social-pill--org">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          OrgByte
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content" id="writing">
+    <div class="section-header">
+      <h2 class="section-title">Writing</h2>
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+        <button class="filter-btn" onclick="filterPosts('essay', this)">Essays</button>
+        <button class="filter-btn" onclick="filterPosts('linkedin', this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </button>
+        <button class="filter-btn" onclick="filterPosts('x', this)">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X Posts
+        </button>
+      </div>
+    </div>
+
+    <div class="posts-grid" id="postsGrid">
+
+      <!-- Post 1 -->
+      <article class="post-card" data-type="essay" data-id="1">
+        <div class="post-meta">
+          <span class="post-type post-type--essay">Essay</span>
+          <time class="post-date">Jun 10, 2026</time>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=1">Why Africa's Next Billion-Dollar Tech Companies Will Be Ecosystems, Not Apps</a>
+        </h2>
+        <p class="post-excerpt">There is a pattern in how the world's most consequential technology companies were built. None of them were designed as products that later became platforms. They were designed as infrastructure from the beginning. That decision — made early, before there was much to show for it — is what separated them from everything else.</p>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(1, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(1, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(1, 'Why Africa\'s Next Billion-Dollar Tech Companies Will Be Ecosystems, Not Apps')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <span class="read-time">8 min read</span>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="post-card" data-type="linkedin" data-id="2">
+        <div class="post-meta">
+          <span class="post-type post-type--linkedin">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </span>
+          <time class="post-date">Jun 7, 2026</time>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=2">We're running a builders program where students build real production systems. This is what it has taught me about how talent actually develops.</a>
+        </h2>
+        <p class="post-excerpt">Most student projects die in a GitHub repository that no one opens after the semester ends. The code works in a controlled environment, the presentation goes well, and then the project disappears. The student graduates without ever having shipped anything a real user depended on. I wanted to try something different.</p>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(2, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(2, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(2, 'What building a real talent program taught me')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="original-link">View on LinkedIn ↗</a>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="post-card" data-type="essay" data-id="3">
+        <div class="post-meta">
+          <span class="post-type post-type--essay">Essay</span>
+          <time class="post-date">Jun 3, 2026</time>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=3">Nigeria Has More Internet Users Than Ever. Why Is Youth Unemployment Still Rising?</a>
+        </h2>
+        <p class="post-excerpt">Between 1993 and 2023, Nigeria went from effectively zero internet users to over 100 million. Mobile subscriptions expanded dramatically. By any measure of digital connectivity, the trajectory has been extraordinary. Over the same period, youth unemployment went in the wrong direction. This is the paradox I spent months studying — and the answer changes how you think about what technology can actually do.</p>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(3, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(3, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(3, 'Nigeria Has More Internet Users Than Ever. Why Is Youth Unemployment Still Rising?')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <span class="read-time">7 min read</span>
+        </div>
+      </article>
+
+      <!-- Post 4 — FEATURED -->
+      <article class="post-card post-card--featured" data-type="essay" data-id="4">
+        <div class="post-meta">
+          <span class="post-type post-type--essay">Essay</span>
+          <time class="post-date">Jun 10, 2026</time>
+          <span class="post-badge">Featured</span>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=4">Trust as Infrastructure: Why Africa's Commerce Problem Is Really an Identity Problem</a>
+        </h2>
+        <div class="post-preview" id="preview-4">
+          <p class="post-excerpt">A contractor takes a deposit and disappears. A vendor's listing does not match the product. A "verified" badge means nothing because no one knows who verified it or how. These are not edge cases in African digital commerce. They are the norm.</p>
+          <p class="post-excerpt">The conventional response is to call this a trust problem. That framing is imprecise — and the imprecision matters, because it leads to the wrong solutions.</p>
+        </div>
+        <div class="post-expanded hidden" id="expanded-4">
+          <p class="post-excerpt">If it is a trust problem, the solution is cultural: build relationships, rely on referrals, wait for reputations to develop. That solution does not scale. If it is an <strong>infrastructure problem</strong> — and it is — then the solution is to build the layer that makes trust between strangers rational. Build it once, build it well, and every platform that needs it integrates it rather than rebuilding from scratch.</p>
+          <p class="post-excerpt">Roughly 80 to 90 percent of employment in Sub-Saharan Africa is informal. These workers have real skills and real experience with no way to prove it to a stranger. Keepdots is the credential the informal economy does not have — not a substitute for skills, but a system that makes skills legible.</p>
+        </div>
+        <button class="read-more-btn" id="readmore-4" onclick="toggleReadMore(4)">
+          <span class="read-more-text">Read more</span>
+          <svg class="read-more-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(4, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(4, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(4, 'Trust as Infrastructure')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <div class="post-footer-right">
+            <span class="read-time">14 min read</span>
+            <a href="post.html?id=4" class="read-full-link">Read full essay →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="post-card" data-type="linkedin" data-id="5">
+        <div class="post-meta">
+          <span class="post-type post-type--linkedin">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </span>
+          <time class="post-date">May 19, 2026</time>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=5">Connectivity is not enough. Thirty-one years of Nigerian data says so.</a>
+        </h2>
+        <p class="post-excerpt">I ran econometric analysis on 31 years of Nigerian data — 1993 to 2023 — looking at the relationship between ICT adoption and unemployment. The findings are not what the standard narrative predicts, and they sit directly at the heart of what we are building at OrgByte.</p>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(5, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(5, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(5, 'Connectivity is not enough. Thirty-one years of Nigerian data says so.')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="original-link">View on LinkedIn ↗</a>
+        </div>
+      </article>
+
+      <!-- Post 6 -->
+      <article class="post-card" data-type="x" data-id="6">
+        <div class="post-meta">
+          <span class="post-type post-type--x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X Thread
+          </span>
+          <time class="post-date">May 12, 2026</time>
+        </div>
+        <h2 class="post-title">
+          <a href="post.html?id=6">The hardest part of building a company in Nigeria is not the product. It is the invisible infrastructure you have to build before the product can exist.</a>
+        </h2>
+        <p class="post-excerpt">Nobody talks about this part. Before you can hire someone, you need employment contracts. Before you can offer equity, you need a corporate structure that can hold it. Before you can pay anyone, you need to understand your tax obligations. None of this is the work. All of it has to be done before the work can start.</p>
+        <div class="post-footer">
+          <div class="post-actions">
+            <button class="action-btn vote-btn" onclick="vote(6, this)" title="Upvote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              <span class="vote-count">0</span>
+            </button>
+            <button class="action-btn like-btn" onclick="like(6, this)" title="Like">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">0</span>
+            </button>
+            <button class="action-btn share-btn" onclick="sharePost(6, 'The invisible infrastructure of building a company')" title="Share">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
+          </div>
+          <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener" class="original-link">View on X ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-label">About</div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I am the Founder and CEO of <a href="https://orgbyte.com" target="_blank" rel="noopener">OrgByte Technologies Limited</a> — a multidisciplinary technology company headquartered in Abuja, Nigeria, building ecosystem-level infrastructure for African markets.</p>
+          <p>OrgByte sits under U3board Holdings alongside Nexebyte Technologies and Voltcast Limited. Our products — Taskdog, Keepdots, and OrgByteAuth — are part of a deliberate strategy to build trust, identity, and commerce infrastructure that works at a global standard.</p>
+          <p>I have a first degree in Computer Science and I am currently pursuing postgraduate studies in Economics. My research sits at the intersection of digital technology and labour market outcomes — the questions that inform what we build at OrgByte every day.</p>
+          <p>I write about technology ecosystems, company building, and what it looks like to do this from Africa.</p>
+        </div>
+        <div class="about-links">
+          <a href="https://orgbyte.com" target="_blank" rel="noopener" class="about-link">OrgByte Technologies ↗</a>
+          <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener" class="about-link">LinkedIn ↗</a>
+          <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener" class="about-link">X / Twitter ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-label">Get in touch</div>
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2 class="contact-heading">Send a message</h2>
+          <p>Whether you have a question, a partnership idea, or just want to share a thought on something I wrote — I read every message.</p>
+        </div>
+        <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject" placeholder="What is this about?" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button class="form-submit" type="submit" id="submitBtn">
+            <span id="submitText">Send message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <div class="form-success hidden" id="formSuccess">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Message sent. I will get back to you soon.
+          </div>
+          <div class="form-error hidden" id="formError">
+            Something went wrong. Email me directly at <a href="mailto:chris.udonsek@orgbyte.com">chris.udonsek@orgbyte.com</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Chris Udonsek</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/chrisudonsek" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/chrisudonsek" target="_blank" rel="noopener">X</a>
+        <a href="https://orgbyte.com" target="_blank" rel="noopener">OrgByte</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHARE MODAL -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-modal-inner">
+      <button class="share-modal-close" onclick="closeShareModal()">✕</button>
+      <h3 class="share-modal-title">Share this post</h3>
+      <p class="share-modal-post-title" id="shareModalTitle"></p>
+      <div class="share-options">
+        <button class="share-option share-option--x" onclick="shareToX()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </button>
+        <button class="share-option share-option--linkedin" onclick="shareToLinkedIn()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Share on LinkedIn
+        </button>
+        <button class="share-option share-option--copy" onclick="copyLink()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyBtnText">Copy link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="share-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
+
+  <script src="js/posts-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
