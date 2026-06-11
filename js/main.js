@@ -31,15 +31,18 @@ function setState(state) {
   try { localStorage.setItem('cu_interactions', JSON.stringify(state)); } catch {}
 }
 
-// ── VOTE ─────────────────────────────────────────────────────────
-function vote(postId, btn) {
+// ── VOTE (API-backed, shared across all visitors) ───────────────
+const API_BASE = 'https://chrisudonsek-admin.orgbytetech.workers.dev';
+
+async function vote(postId, btn) {
   const state = getState();
   const key = `vote_${postId}`;
   const countEl = btn.querySelector('.vote-count');
   const current = parseInt(countEl.textContent, 10);
+  const isVoted = state[key];
 
-  if (state[key]) {
-    // Undo vote
+  // Optimistic UI update
+  if (isVoted) {
     state[key] = false;
     countEl.textContent = current - 1;
     btn.classList.remove('voted');
@@ -51,16 +54,29 @@ function vote(postId, btn) {
     btn.title = 'Remove upvote';
   }
   setState(state);
+
+  // Sync to server
+  try {
+    const res = await fetch(`${API_BASE}/api/posts/${postId}/vote`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: isVoted ? 'down' : 'up' })
+    });
+    const data = await res.json();
+    if (data.votes !== undefined) countEl.textContent = data.votes;
+  } catch (e) { /* keep optimistic value */ }
 }
 
-// ── LIKE ─────────────────────────────────────────────────────────
-function like(postId, btn) {
+// ── LIKE (API-backed, shared across all visitors) ────────────────
+async function like(postId, btn) {
   const state = getState();
   const key = `like_${postId}`;
   const countEl = btn.querySelector('.like-count');
   const current = parseInt(countEl.textContent, 10);
 
-  if (state[key]) {
+  const isLiked = state[key];
+
+  if (isLiked) {
     state[key] = false;
     countEl.textContent = current - 1;
     btn.classList.remove('liked');
@@ -72,6 +88,17 @@ function like(postId, btn) {
     btn.title = 'Unlike';
   }
   setState(state);
+
+  // Sync to server
+  try {
+    const res = await fetch(`${API_BASE}/api/posts/${postId}/like`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: isLiked ? 'down' : 'up' })
+    });
+    const data = await res.json();
+    if (data.likes !== undefined) countEl.textContent = data.likes;
+  } catch (e) { /* keep optimistic value */ }
 }
 
 // ── RESTORE STATE ON LOAD ────────────────────────────────────────
@@ -278,3 +305,27 @@ async function submitForm(e) {
     btnText.textContent = 'Send message';
   }
 }
+
+// ── LOAD REAL COUNTS FROM API ────────────────────────────────────
+async function loadCounts() {
+  try {
+    const res = await fetch(`${API_BASE}/api/posts`);
+    const data = await res.json();
+    if (!data.posts) return;
+
+    Object.values(data.posts).forEach(post => {
+      // Update vote counts on page
+      const cards = document.querySelectorAll(`[data-id="${post.id}"]`);
+      cards.forEach(card => {
+        const voteEl = card.querySelector('.vote-count');
+        const likeEl = card.querySelector('.like-count');
+        if (voteEl) voteEl.textContent = post.votes || 0;
+        if (likeEl) likeEl.textContent = post.likes || 0;
+      });
+    });
+  } catch (e) { /* use static counts as fallback */ }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  loadCounts();
+});
