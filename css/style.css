@@ -986,3 +986,39 @@ html.night .theme-toggle .icon-sun  { display: block; }
   .form-row { grid-template-columns: 1fr; }
   .form-submit { width: 100%; }
 }
+
+/* ── SITE SHARE BUTTONS ── */
+.site-share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.site-share-btn:hover {
+  color: var(--accent-blue);
+  border-color: rgba(79,126,255,0.4);
+  background: rgba(79,126,255,0.08);
+}
+
+.footer-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+.footer-share-btn:hover { color: var(--accent-blue); }
