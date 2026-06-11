@@ -1,7 +1,10 @@
 // ============================================
 // POST PAGE JS — post.js
 // Loads post data from posts-data.js
+// Fetches live counts from API
 // ============================================
+
+const POST_API = 'https://chrisudonsek-admin.orgbytetech.workers.dev';
 
 (function () {
   const params = new URLSearchParams(window.location.search);
@@ -15,7 +18,7 @@
   }
 
   // Update page meta
-  document.getElementById('pageTitle').textContent = `${post.title} — Chris Udonsek`;
+  document.getElementById('pageTitle').textContent = `${post.title} | Chris Udonsek`;
   document.getElementById('metaDesc').content = post.body.replace(/<[^>]+>/g, '').substring(0, 160);
   document.getElementById('ogUrl').content = `https://chrisudonsek.com/post.html?id=${id}`;
 
@@ -38,9 +41,20 @@
   document.getElementById('postPageTitle').textContent = post.title;
   document.getElementById('postBody').innerHTML = post.body;
 
-  // Vote/like counts
-  document.getElementById('postVoteCount').textContent = post.votes;
-  document.getElementById('postLikeCount').textContent = post.likes;
+  // Show static counts first (instant)
+  document.getElementById('postVoteCount').textContent = post.votes || 0;
+  document.getElementById('postLikeCount').textContent = post.likes || 0;
+
+  // Then fetch live counts from API and update
+  fetch(`${POST_API}/api/posts/${id}`)
+    .then(r => r.json())
+    .then(data => {
+      if (data.post) {
+        document.getElementById('postVoteCount').textContent = data.post.votes || 0;
+        document.getElementById('postLikeCount').textContent = data.post.likes || 0;
+      }
+    })
+    .catch(() => {}); // keep static counts on error
 
   // Restore interaction state
   const state = (() => {
