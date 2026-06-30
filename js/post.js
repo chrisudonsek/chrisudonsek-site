@@ -1,15 +1,33 @@
 // ============================================
 // POST PAGE JS — post.js
-// Loads post data from posts-data.js
-// Fetches live counts from API
+// Tries live API first (for dynamically published posts),
+// falls back to static posts-data.js (for the 6 seeded posts)
 // ============================================
 
 const POST_API = 'https://chrisudonsek-admin.orgbytetech.workers.dev';
 
-(function () {
+(async function () {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'), 10);
-  const post = POSTS[id];
+  const id = params.get('id');
+
+  let post = null;
+
+  // Try the live API first — covers posts published after the static file was seeded
+  try {
+    const res = await fetch(`${POST_API}/api/posts/${id}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data.post) post = data.post;
+    }
+  } catch (e) {
+    // network/API issue — fall through to static lookup
+  }
+
+  // Fall back to the static seeded posts (ids 1–6)
+  if (!post) {
+    const numericId = parseInt(id, 10);
+    post = POSTS[numericId];
+  }
 
   if (!post) {
     document.getElementById('postPageTitle').textContent = 'Post not found';
@@ -19,7 +37,7 @@ const POST_API = 'https://chrisudonsek-admin.orgbytetech.workers.dev';
 
   // Update page meta
   document.getElementById('pageTitle').textContent = `${post.title} | Chris Udonsek`;
-  document.getElementById('metaDesc').content = post.body.replace(/<[^>]+>/g, '').substring(0, 160);
+  document.getElementById('metaDesc').content = (post.body || '').replace(/<[^>]+>/g, '').substring(0, 160);
   document.getElementById('ogUrl').content = `https://chrisudonsek.com/post.html?id=${id}`;
 
   // Post header
@@ -41,11 +59,11 @@ const POST_API = 'https://chrisudonsek-admin.orgbytetech.workers.dev';
   document.getElementById('postPageTitle').textContent = post.title;
   document.getElementById('postBody').innerHTML = post.body;
 
-  // Show static counts first (instant)
+  // Show counts (already fresh if we got the post from the API)
   document.getElementById('postVoteCount').textContent = post.votes || 0;
   document.getElementById('postLikeCount').textContent = post.likes || 0;
 
-  // Then fetch live counts from API and update
+  // If we fell back to static data, still try to fetch live counts to overlay
   fetch(`${POST_API}/api/posts/${id}`)
     .then(r => r.json())
     .then(data => {
