@@ -1022,3 +1022,31 @@ html.night .theme-toggle .icon-sun  { display: block; }
   padding: 0;
 }
 .footer-share-btn:hover { color: var(--accent-blue); }
+
+/* ── DYNAMIC POSTS LOADING ── */
+.loading-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  gap: 14px;
+}
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-posts p { font-size: 13px; font-family: var(--font-mono); }
+
+.posts-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}

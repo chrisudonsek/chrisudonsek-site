@@ -101,40 +101,9 @@ async function like(postId, btn) {
   } catch (e) { /* keep optimistic value */ }
 }
 
-// ── RESTORE STATE ON LOAD ────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
-  const state = getState();
+// Interaction state restoration now handled by render-posts.js after dynamic render
 
-  document.querySelectorAll('.vote-btn').forEach(btn => {
-    const card = btn.closest('.post-card');
-    if (!card) return;
-    const id = card.dataset.id;
-    if (state[`vote_${id}`]) btn.classList.add('voted');
-  });
-
-  document.querySelectorAll('.like-btn').forEach(btn => {
-    const card = btn.closest('.post-card');
-    if (!card) return;
-    const id = card.dataset.id;
-    if (state[`like_${id}`]) btn.classList.add('liked');
-  });
-});
-
-// ── FILTER POSTS ─────────────────────────────────────────────────
-function filterPosts(type, btn) {
-  // Update active button
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  // Show/hide posts
-  document.querySelectorAll('.post-card').forEach(card => {
-    if (type === 'all' || card.dataset.type === type) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
-}
+// filterPosts is now defined in render-posts.js
 
 // ── SHARE MODAL ──────────────────────────────────────────────────
 let currentShareId = null;
@@ -305,27 +274,4 @@ async function submitForm(e) {
     btnText.textContent = 'Send message';
   }
 }
-
-// ── LOAD REAL COUNTS FROM API ────────────────────────────────────
-async function loadCounts() {
-  try {
-    const res = await fetch(`${API_BASE}/api/posts`);
-    const data = await res.json();
-    if (!data.posts) return;
-
-    Object.values(data.posts).forEach(post => {
-      // Update vote counts on page
-      const cards = document.querySelectorAll(`[data-id="${post.id}"]`);
-      cards.forEach(card => {
-        const voteEl = card.querySelector('.vote-count');
-        const likeEl = card.querySelector('.like-count');
-        if (voteEl) voteEl.textContent = post.votes || 0;
-        if (likeEl) likeEl.textContent = post.likes || 0;
-      });
-    });
-  } catch (e) { /* use static counts as fallback */ }
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  loadCounts();
-});
+// Post counts and rendering now handled by render-posts.js
