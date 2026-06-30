@@ -2,7 +2,7 @@
 const POSTS_API_URL = "https://chrisudonsek-admin.orgbytetech.workers.dev/api/posts";
 
 async function fetchAndRenderPosts() {
-  const container = document.querySelector("#writing .posts-grid") || document.querySelector("#writing");
+  const container = document.getElementById("postsGrid");
   if (!container) return;
 
   try {
@@ -15,16 +15,18 @@ async function fetchAndRenderPosts() {
       return new Date(b.date) - new Date(a.date);
     });
 
+    if (posts.length === 0) return; // keep loading state / fallback if API returns nothing
+
     container.innerHTML = posts.map(renderPostCard).join("");
   } catch (err) {
     console.error("Failed to fetch posts from admin API:", err);
-    // Leave existing static fallback cards in place if the fetch fails
+    // Leave existing loading/fallback markup in place if the fetch fails
   }
 }
 
 function renderPostCard(post) {
   return `
-    <article class="post-card" data-id="${post.id}">
+    <article class="post-card" data-id="${post.id}" data-type="${post.type || ""}">
       <a href="post.html?id=${post.id}" class="post-card-link">
         <span class="post-type">${post.type || ""}</span>
         <h2 class="post-title">${post.title}</h2>
