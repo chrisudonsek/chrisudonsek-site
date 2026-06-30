@@ -6,6 +6,3 @@
 /trust-as-infrastructure /post.html?id=4 301
 /connectivity-not-enough /post.html?id=5 301
 /invisible-infrastructure /post.html?id=6 301
-
-# www to apex redirect
-https://www.chrisudonsek.com/* https://chrisudonsek.com/:splat 301
